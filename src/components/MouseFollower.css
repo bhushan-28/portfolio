@@ -1,0 +1,50 @@
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 50%;
+  opacity: 0; /* Default invisible until mouse movement triggers enter */
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--color-accent);
+  background-color: transparent;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+  will-change: transform, border-color, background-color, box-shadow;
+}
+
+/* Hide custom cursor on touch/mobile screens */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Disable browser default cursor on desktop screens */
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  .btn,
+  .social-icon,
+  .mobile-toggle,
+  .project-link-icon {
+    cursor: none !important;
+  }
+}

@@ -1,0 +1,118 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050608;
+  z-index: 999999; /* Higher than custom cursor and whatsapp */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.preloader-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Centered layout on top of the canvas */
+.preloader-content-centered {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.preloader-logo-glow {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+.preloader-logo-glow span {
+  color: var(--color-accent);
+  text-shadow: var(--glow-cyan);
+}
+
+.preloader-status-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glowing Progress bar styling */
+.progress-bar-container-glow {
+  width: 250px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.progress-bar-fill-glow {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-purple));
+  box-shadow: var(--glow-cyan);
+  transition: width 0.05s ease-out;
+  border-radius: 2px;
+}
+
+.progress-percent-glow {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-shadow: var(--glow-cyan);
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Ensure mouse cursor is normal in preloader since cursorfollower is inactive */
+.preloader-overlay {
+  cursor: default !important;
+}
+
+@media (max-width: 480px) {
+  .preloader-logo-glow {
+    font-size: 2.2rem;
+  }
+  .preloader-status-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.8rem;
+  }
+  .progress-bar-container-glow {
+    width: 180px;
+  }
+  .progress-percent-glow {
+    font-size: 0.85rem;
+  }
+}

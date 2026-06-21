@@ -1,0 +1,6 @@
+/* App styles are handled globally in index.css */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

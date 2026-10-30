@@ -116,7 +116,7 @@ export default function Contact() {
                 <div>
                   <h4>Email</h4>
                   <a href="mailto:bhushan@example.com" className="info-detail-link">
-                    bhushankudkar2006@gmail.com
+                    tech.bhushan19@gmail.com
                   </a>
                 </div>
               </div>
